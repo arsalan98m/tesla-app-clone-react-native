@@ -2,16 +2,18 @@ import React from 'react';
 import { Text, View, ImageBackground } from 'react-native';
 import styles from './styles';
 import StyledButton from '../StyledButton';
+import { useNavigation } from '@react-navigation/native';
 
-function CarItem({ name, tagLine, tagLineCTA, image }) {
-  console.log('name=>', name);
+function CarItem({ name, tagline, taglineCTA, image }) {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.carContainer}>
       <ImageBackground source={image} style={styles.image} />
       <View style={styles.titles}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.subtitle}>
-          {tagLine} <Text style={styles.subtitleCTA}>{tagLineCTA}</Text>
+          {tagline} <Text style={styles.subtitleCTA}>{taglineCTA}</Text>
         </Text>
       </View>
 
@@ -19,13 +21,13 @@ function CarItem({ name, tagLine, tagLineCTA, image }) {
         <StyledButton
           type='primary'
           content='custom order'
-          onPress={() => console.warn('custom order was pressed')}
+          onPress={() => navigation.navigate('Detail')}
         />
 
         <StyledButton
           type='secondary'
           content='existing inventory'
-          onPress={() => console.warn('existing inventory was pressed')}
+          onPress={() => navigation.navigate('Detail')}
         />
       </View>
     </View>

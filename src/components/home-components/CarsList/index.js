@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, Dimensions } from 'react-native';
 import styles from './styles';
-import { cars } from '../../utils/index';
+import { cars } from '../../../utils/index';
 import CartItem from '../CarItem';
 
 function CarsList() {
